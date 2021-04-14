@@ -1,26 +1,26 @@
-import react, { useState } from 'react'
-import PropTypes from 'prop-types'
+import react, { useState } from "react";
+import PropTypes from "prop-types";
+import Header from "./Componentes/Header";
+import Formulario from "./Componentes/Formulario";
 
-const Contador = ({propNum}) => {
-    const [cuenta, setCuenta] = useState(propNum);
+const Contador = ({ propNum, name }) => {
+  const [cuenta, setCuenta] = useState(propNum);
+  const [mode, setMode] = useState(false);
 
-    return (
-        <>
-        <p>HOLA SOY CONTADOR Fredy</p>
-        <h1>HOLA SOY FREDY</h1>
-        <h2>{cuenta}</h2>
-        <button onClick={( () => setCuenta(cuenta + 1))} > ¡Más!</button>
-        <button onClick={( () => setCuenta(cuenta - 1))} > ¡Menos!</button>
-        <br/>
-        <br/>
-        <button onClick={( () => setCuenta(propNum))} > ¡Reset!</button>
-       
-        </>
-    )
-}
+  return (
+    <div className="p-5">
+      <Header mode={mode} />
+      <h3 className="mb-3">{mode ? "DarkMode" : "LightMode"}</h3>
+      <button className="btn btn-primary mb-4" onClick={() => setMode(!mode)}>
+        Change Mode
+      </button>
+      <Formulario />
+    </div>
+  );
+};
 
 Contador.propTypes = {
-    propNum: PropTypes.number.isRequired
-}
+  propNum: PropTypes.number.isRequired,
+};
 
 export default Contador;
