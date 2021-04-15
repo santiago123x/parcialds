@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Header = ({ mode }) => {
+const Header = ({ mode, setMode }) => {
   const [theme, setTheme] = useState("bg-primary");
   useEffect(() => {
     mode ? setTheme("bg-dark") : setTheme("bg-primary");
@@ -12,6 +12,7 @@ const Header = ({ mode }) => {
           <h2>Home</h2>
         </li>
       </ul>
+      <button onClick={() => setMode(!mode)}>{!mode ? "Dark" : "Light"}</button>
     </nav>
   );
 };
