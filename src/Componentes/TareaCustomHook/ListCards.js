@@ -3,7 +3,7 @@ import "./style.css";
 import Loading from "../Load-Error/Loading";
 import Error from "../Load-Error/Error";
 
-const ListCards = ({ mode, data, loading, error }) => {
+const ListCards = ({ data, loading, error }) => {
   return (
     <>
       {loading ? (
@@ -18,7 +18,6 @@ const ListCards = ({ mode, data, loading, error }) => {
               return (
                 <div>
                   <CompCard
-                    mode={mode}
                     key={char.id}
                     name={char.name}
                     species={char.species}
